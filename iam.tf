@@ -24,16 +24,38 @@ data "aws_iam_policy_document" "testing_group_policy_document" {
   statement {
     effect = "Allow"
     actions = [
+      "iam:GetAccountPasswordPolicy",
+    ]
+    resources = ["*"]
+  }
+  statement {
+    effect = "Allow"
+    actions = [
+      "iam:ChangePassword",
+    ]
+    resources = [
+      "arn:aws:iam::*:user/$${aws:username}"
+    ]
+  }
+  statement {
+    effect = "Allow"
+    actions = [
       "s3:PutObject",
       "s3:PutObjectAcl",
       "s3:GetObject",
       "s3:DeleteObject",
-      "s3:ListBucket",
       "s3:ListBucketMultipartUploads",
       "s3:GetBucketLocation",
       "s3:AbortMultipartUpload"
     ]
     resources = [module.s3_bucket.bucket_arn]
+  }
+  statement {
+    effect = "Allow"
+    actions = [
+        "s3:ListAllMyBuckets"
+    ]
+    resources = ["*"]
   }
   statement {
     effect = "Allow"

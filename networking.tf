@@ -1,8 +1,8 @@
 module "vpc" {
   source    = "cloudposse/vpc/aws"
   version   = "2.1.0"
-  namespace = "ghtt"
-  stage     = "dev"
+  namespace = var.namespace
+  stage     = var.stage
   name      = "ghtt-vpc"
 
   ipv4_primary_cidr_block = var.ipv4_cidr_block
@@ -13,8 +13,8 @@ module "vpc" {
 module "dynamic_subnets" {
   source             = "cloudposse/dynamic-subnets/aws"
   version            = "2.4.1"
-  namespace          = "ghtt"
-  stage              = "dev"
+  namespace          = var.namespace
+  stage              = var.stage
   name               = "ghtt-subnets"
   availability_zones = ["eu-west-2a", "eu-west-2b", "eu-west-2c"]
   vpc_id             = module.vpc.vpc_id

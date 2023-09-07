@@ -2,9 +2,9 @@ resource "aws_s3_bucket_notification" "bucket_notification" {
   bucket = module.s3_bucket.bucket_id
 
   topic {
-    id = "NotifyCreated"
-    topic_arn     = aws_sns_topic.bucket_alert.arn
-    events        = ["s3:ObjectCreated:*"]
+    id        = "NotifyCreated"
+    topic_arn = aws_sns_topic.bucket_alert.arn
+    events    = ["s3:ObjectCreated:*"]
   }
 }
 
@@ -29,11 +29,11 @@ data "aws_iam_policy_document" "bucket_alert_policy_document" {
 }
 
 resource "aws_sns_topic" "bucket_alert" {
-  name   = "ghtt-storage-alert-topic"
+  name = "ghtt-storage-alert-topic"
 }
 
 resource "aws_sns_topic_policy" "bucket_alert_policy" {
-  arn = aws_sns_topic.bucket_alert.arn
+  arn    = aws_sns_topic.bucket_alert.arn
   policy = data.aws_iam_policy_document.bucket_alert_policy_document.json
 }
 
