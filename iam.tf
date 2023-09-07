@@ -21,6 +21,22 @@ resource "aws_iam_group_policy" "testing_group_policy" {
 }
 
 data "aws_iam_policy_document" "testing_group_policy_document" {
+    statement {
+        effect = "Allow"
+        actions = [
+            "iam:GetAccountPasswordPolicy",
+        ]
+        resources = ["*"]
+    }
+    statement {
+        effect = "Allow"
+        actions = [
+            "iam:ChangePassword",
+        ]
+        resources = [
+            "arn:aws:iam::*:user/${aws:username}"
+        ]
+    }
   statement {
     effect = "Allow"
     actions = [

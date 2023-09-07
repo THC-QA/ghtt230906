@@ -11,8 +11,8 @@ module "s3_bucket" {
   versioning_enabled     = false
   allowed_bucket_actions = ["s3:GetObject", "s3:ListBucket", "s3:GetBucketLocation"]
   name                   = "ghtt-storage"
-  stage                  = "dev"
-  namespace              = "ghtt"
+  stage                  = var.stage
+  namespace              = var.namespace
   logging = [{
     bucket_name = "ghtt-s3-logs"
     prefix      = "log/"
