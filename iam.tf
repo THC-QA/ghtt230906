@@ -31,14 +31,14 @@ data "aws_iam_policy_document" "testing_group_policy_document" {
   statement {
     effect = "Allow"
     actions = [
-      "iam:ChangePassword",
+      "iam:ChangePassword", # Doesn't appear to work as documentation suggests, raise AWS Support ticket?
     ]
     resources = [
       "arn:aws:iam::*:user/$${aws:username}"
     ]
   }
   statement {
-    effect = "Allow"
+    effect = "Allow" # User permissions to be trimmed as per observed behaviour
     actions = [
       "s3:PutObject",
       "s3:PutObjectAcl",
@@ -53,7 +53,7 @@ data "aws_iam_policy_document" "testing_group_policy_document" {
   statement {
     effect = "Allow"
     actions = [
-        "s3:ListAllMyBuckets"
+        "s3:ListAllMyBuckets" # required for console users to view S3
     ]
     resources = ["*"]
   }

@@ -22,6 +22,8 @@ module "dynamic_subnets" {
   ipv4_cidr_block    = [var.ipv4_cidr_block]
 }
 
+# VPC Endpoints would enable security improvements to architecture and movement/removal of bastion host
+
 # module "vpc_endpoints" {
 #   source  = "cloudposse/vpc/aws//modules/vpc-endpoints"
 #   version = "0.25.0"

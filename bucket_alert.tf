@@ -37,6 +37,8 @@ resource "aws_sns_topic_policy" "bucket_alert_policy" {
   policy = data.aws_iam_policy_document.bucket_alert_policy_document.json
 }
 
+# If more email endpoints added, would be worth transitioning to count() list input or external list import
+
 resource "aws_sns_topic_subscription" "bucket_alert_primary_email_target" {
   topic_arn = aws_sns_topic.bucket_alert.arn
   protocol  = "email-json"

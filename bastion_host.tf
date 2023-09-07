@@ -25,7 +25,7 @@ module "bastion_host" {
   vpc_id                      = module.vpc.vpc_id
   associate_public_ip_address = true
   instance_profile            = aws_iam_instance_profile.bastion_host_profile.name
-  user_data = ["sudo yum install amazon-cloudwatch-agent"]
+  user_data = ["sudo yum install amazon-cloudwatch-agent"] # Still currently requires manually activation on first login, look for way to automate?
   security_group_rules = [
   {
     "cidr_blocks": [
