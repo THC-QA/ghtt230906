@@ -1,6 +1,6 @@
 # ghtt230906
 
-Architecture repository to satisfy the requirements of [tech test found here](https://docs.google.com/document/d/1sEG_pjnYEejehUwmMegBXX9wuyF26Dfb/edit?usp=sharing&ouid=110046131455741196059&rtpof=true&sd=true)
+Architecture repository to satisfy the requirements of [tech test found here](https://docs.google.com/document/d/1Kkx0_3f7TZoj2qsi6vmPyxwtoae-UDOl/edit?usp=sharing&ouid=105234941543635519924&rtpof=true&sd=true)
 
 ## Required Inputs
 
