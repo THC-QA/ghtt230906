@@ -1,0 +1,25 @@
+variable "ipv4_cidr_block" {
+  description = "Primary ipv4 block occupied by the vpc"
+  type        = string
+  default     = "10.0.0.0/16"
+}
+
+variable "name_one" {
+  description = "Name of the first user to be added to the 'Testers' user group"
+  type        = string
+}
+
+variable "name_two" {
+  description = "Name of the second user to be added to the 'Testers' user group"
+  type        = string
+}
+
+variable "primary_email_target" {
+  description = "Primary email recipient of s3 bucket alerts"
+  type        = string
+}
+
+variable "secondary_email_target" {
+  description = "Secondary email recipient of s3 bucket alerts"
+  type        = string
+}
